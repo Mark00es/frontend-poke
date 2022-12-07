@@ -23,20 +23,24 @@
                 <div class="form-group">
                     <input type="text" name="maxHP" [(ngModel)]="leader.urlImgProfile"  placeholder="URL Img Profile">
                 </div>
-                <div class="form-group"> Selecciona Pokemon:
-                    <br>
-                    <button class="tipo-boton" href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'block'; document.getElementById ('fade'). style. display = 'block' "> SELECCIONAR </button>
-                        <div id="light" class="white_content">                            
-                           <a href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'none'; document.getElementById ('fade'). style.display = 'none'" style = "position: absolute; right: 0px; top: 0px;"> Haga clic aquí para cerrar esta ventana </a>
-                    </div> 
-                    <div id="fade" class="black_overlay"></div> 
-                    <!-- <input type="text" name="pokemonId" [(ngModel)]="leader.pokemonId" placeholder="Pokemon Name"> -->
+
+                <div class="form-group">
+                    <a class="boton-seleccionar" href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'block'; document.getElementById ('fade'). style. display = 'block' "> Seleccionar Pokemon</a>
+                        <div id="light" class="white_content">                           
+                            <ul class="pokemons" *ngFor="let pokemon of pokemons">                                
+                                <a class="boton-seleccionar" href = "javascript: void (0)" onclick = "document.getElementById ('light'). style.display = 'none'; document.getElementById ('fade'). style.display = 'none'" style = "position: relative; right: 0px; top: 0px;">
+                                    <span><img class="logoImagen" [src]="pokemon.urlImg"  alt=""></span>{{pokemon.name}}
+                                </a>
+                            </ul>
+                        </div> 
+                    <input type="number" name="gymId" [(ngModel)]="leader.pokemonId" placeholder="Gym Id">
                 </div>
-                <div class="form-group">Gym ID :
+
+                <div class="form-group">
                     <input type="number" name="gymId" [(ngModel)]="leader.gymId" placeholder="Gym Id">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">
-                    Save
+                    Save                                        
                 </button>
             </form>
         </div>
